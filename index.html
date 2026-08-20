@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vizz — Agendá tu MVP en vivo</title>
+<meta name="description" content="Contanos qué proceso no funciona en tu empresa y armamos un primer prototipo funcionando en 20 minutos, en vivo, sin costo ni compromiso." />
+<meta property="og:title" content="Vizz — Agendá tu MVP en vivo" />
+<meta property="og:description" content="Contanos qué proceso no funciona en tu empresa y armamos un primer prototipo funcionando en 20 minutos, en vivo, sin costo ni compromiso." />
+<meta property="og:type" content="website" />
+<style>
+  :root {
+    --navy: #1F2937;
+    --accent: #0F766E;
+    --accent-light: #F0FDFA;
+    --grey: #6B7280;
+    --border: #E5E7EB;
+    --page: #FCFCFB;
+    --whatsapp: #25D366;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    color: var(--navy);
+    background: var(--page);
+    line-height: 1.55;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .wrap-wide { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(252,252,251,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+  .brand { font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+  .brand span { color: var(--accent); }
+  .nav-cta {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+    text-decoration: none;
+  }
+  .nav-cta:hover { opacity: 0.92; }
+
+  section { padding: 56px 0; }
+  section.alt { background: var(--accent-light); }
+  h1 { font-size: 2.2rem; line-height: 1.15; margin: 0 0 16px; font-weight: 800; }
+  h2 { font-size: 1.4rem; margin: 0 0 20px; font-weight: 700; }
+  .eyebrow {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .lead { font-size: 1.08rem; color: #374151; max-width: 580px; margin: 0 0 28px; }
+
+  .btn-primary {
+    display: inline-block; background: var(--accent); color: #fff; font-weight: 700;
+    padding: 14px 26px; border-radius: 10px; text-decoration: none; font-size: 1rem;
+  }
+  .btn-primary:hover { opacity: 0.92; }
+  .btn-whatsapp {
+    display: inline-block; background: var(--whatsapp); color: #fff; font-weight: 700;
+    padding: 14px 26px; border-radius: 10px; text-decoration: none; font-size: 1rem;
+  }
+  .btn-whatsapp:hover { opacity: 0.92; }
+  .btn-secondary {
+    display: inline-block; color: var(--accent); font-weight: 600; text-decoration: none;
+    padding: 14px 8px; font-size: 0.95rem;
+  }
+
+  .hero { padding-top: 72px; }
+  .hero-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .pain-item {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; font-size: 0.95rem;
+  }
+  .pain-item b { color: var(--accent); }
+
+  .quote-box {
+    border-left: 4px solid var(--accent); background: #fff; border-radius: 8px;
+    padding: 22px 24px; font-size: 1.1rem; font-style: italic; color: var(--navy);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+  .step { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 20px 16px; }
+  .step .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%; background: var(--accent);
+    color: #fff; font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;
+  }
+  .step h3 { margin: 0 0 8px; font-size: 0.98rem; }
+  .step p { margin: 0; font-size: 0.88rem; color: var(--grey); }
+
+  .final-cta {
+    text-align: center; background: var(--navy); color: #fff; border-radius: 16px;
+    padding: 44px 28px;
+  }
+  .final-cta h2 { color: #fff; }
+  .final-cta p { color: #D1D5DB; max-width: 460px; margin: 0 auto 24px; }
+  .final-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .demo-embed-wrap {
+    border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .demo-embed-wrap iframe {
+    display: block; width: 100%; height: 640px; border: none;
+  }
+  .demo-caption {
+    text-align: center; color: var(--grey); font-size: 0.85rem; margin: 14px 0 0;
+  }
+  .demo-switch {
+    display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .demo-tab {
+    background: #fff; border: 1px solid var(--border); color: var(--navy);
+    font-weight: 600; font-size: 0.88rem; padding: 10px 16px; border-radius: 8px;
+    cursor: pointer;
+  }
+  .demo-tab.active {
+    background: var(--accent); color: #fff; border-color: var(--accent);
+  }
+
+  footer { padding: 28px 0 44px; text-align: center; color: var(--grey); font-size: 0.85rem; }
+  footer a { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .pain-grid, .steps { grid-template-columns: 1fr; }
+    h1 { font-size: 1.6rem; }
+    .demo-embed-wrap iframe { height: 420px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">VI<span>ZZ</span></div>
+    <a class="nav-cta" href="#agendar">Agendar mi MVP en vivo</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Hecho para tu empresa</span>
+    <h1>Contanos qué no funciona y armamos un MVP juntos en 20 minutos.</h1>
+    <p class="lead">
+      No es una llamada de ventas — es una sesión de trabajo. Nos contás cuál
+      es el proceso que hoy se te cae (el que vive en la cabeza de alguien, o
+      en un Excel que cada uno carga distinto), y ahí mismo armamos en vivo un
+      primer MVP — un prototipo funcionando, no una promesa en power point —
+      con tu caso real adentro.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-whatsapp" href="https://wa.me/595972982914?text=Hola%21%20Quiero%20agendar%20mi%20sesion%20en%20vivo%20de%2020%20minutos%20para%20mapear%20un%20proceso." target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+      <a class="btn-secondary" href="mailto:joaquini.solutions@gmail.com?subject=Quiero%20agendar%20mi%20MVP%20en%20vivo&body=Hola%20Joaqu%C3%ADn%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20en%20vivo%20de%2020%20minutos%20para%20mapear%20un%20proceso.">o por mail</a>
+      <a class="btn-secondary" href="https://airtable.com/app2bvtwtacJXhtRL/pagCyynka8Sg3yIYB/form" target="_blank" rel="noopener">o contanos tu dolor por escrito →</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">¿Te suena conocido?</span>
+    <h2>El día a día de las empresas con las que hablamos</h2>
+    <div class="pain-grid">
+      <div class="pain-item"><b>Excel de seguimiento</b> que cada uno carga distinto, y nadie sabe cuál es la versión que vale.</div>
+      <div class="pain-item"><b>Te enterás tarde</b> de que algo no se cumplió — cuando ya explotó, no antes.</div>
+      <div class="pain-item"><b>Nadie sabe a quién le toca</b> cuando algo se cae — hay que investigar en vez de actuar.</div>
+      <div class="pain-item"><b>Reportar a gerencia</b> es armar todo a mano cada semana, y siempre se olvida algo.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Lo que te dejamos</span>
+    <div class="quote-box">
+      "No te decimos cómo arreglar tus procesos. Te los dejamos andando —
+      entendibles por tu gente y por la IA— y con el tracking para saber si
+      se cumplen, sin inversiones grandes que después no tienen retorno."
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Así es la sesión de 20 minutos</span>
+    <h2>En 20 minutos, te llevás un MVP — el primer paso de la solución, sin costo ni compromiso.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Contás tu dolor</h3>
+        <p>El proceso concreto que más te está costando hoy — quiénes intervienen, dónde se traba.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Lo armamos en vivo</h3>
+        <p>En la misma llamada, con tu caso real. Puede fallar en vivo — no es el producto final, es la prueba de que se puede.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Vemos si seguimos</h3>
+        <p>Si tiene sentido, coordinamos una segunda charla con la propuesta completa y el costo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap-wide">
+    <span class="eyebrow">Así se ve un MVP real</span>
+    <h2>Esto es lo que armamos en la sesión de 20 minutos</h2>
+    <p class="lead">
+      Es un primer MVP en vivo, no la solución final a medida — esa se ajusta
+      más a fondo con tu equipo y lleva su propio proceso. Pero ya podés
+      tocarlo: navegá las pestañas de abajo (Runbook, Graph, Actors, Pain
+      Points). El tuyo puede ser otro — cobranza, RRHH, onboarding, lo que
+      hoy se te cae — pero se arma con la misma lógica. Elegí un ejemplo:
+    </p>
+    <div class="demo-switch" role="tablist" aria-label="Elegir ejemplo de MVP">
+      <button class="demo-tab active" data-src="demos/captacion-primeros-clientes-demo.html" data-caption="Nuestro propio proceso de captación de clientes — así arrancamos nosotros mismos a buscar los primeros clientes.">Captación de clientes (el nuestro)</button>
+      <button class="demo-tab" data-src="demos/onboarding-nuevo-empleado-demo.html" data-caption="Onboarding de un nuevo empleado: de aceptar la propuesta al seguimiento a los 90 días, con el punto donde hoy se pierde más información.">Onboarding de nuevo empleado</button>
+      <button class="demo-tab" data-src="demos/facturacion-v2-demo.html" data-caption="Seguimiento de facturación: de la aprobación del cliente a la factura remitida, con el ciclo real de corrección por dato erróneo.">Seguimiento de facturación</button>
+    </div>
+    <div class="demo-embed-wrap">
+      <iframe id="demo-frame" src="demos/captacion-primeros-clientes-demo.html" title="Ejemplo de MVP en vivo" loading="lazy"></iframe>
+    </div>
+    <p class="demo-caption" id="demo-caption">Nuestro propio proceso de captación de clientes — así arrancamos nosotros mismos a buscar los primeros clientes.</p>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.demo-tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.demo-tab').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('demo-frame').src = btn.dataset.src;
+      document.getElementById('demo-caption').textContent = btn.dataset.caption;
+    });
+  });
+</script>
+
+<section id="agendar">
+  <div class="wrap">
+    <div class="final-cta">
+      <h2>¿Agendamos tu MVP en vivo?</h2>
+      <p>20 minutos, sin power point, sin compromiso. Contanos cuál es el proceso que más te duele hoy.</p>
+      <div class="final-actions">
+        <a class="btn-whatsapp" href="https://wa.me/595972982914?text=Hola%21%20Quiero%20agendar%20mi%20sesion%20en%20vivo%20de%2020%20minutos%20para%20mapear%20un%20proceso." target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+        <a class="btn-primary" href="mailto:joaquini.solutions@gmail.com?subject=Quiero%20agendar%20mi%20MVP%20en%20vivo&body=Hola%20Joaqu%C3%ADn%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20en%20vivo%20de%2020%20minutos%20para%20mapear%20un%20proceso.">Escribir por mail</a>
+        <a class="btn-primary" href="https://airtable.com/app2bvtwtacJXhtRL/pagCyynka8Sg3yIYB/form" target="_blank" rel="noopener">Contanos tu dolor por escrito</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Vizz · Procesos que se cumplen solos · WhatsApp +595 972 982 914
+</footer>
+
+</body>
+</html>
